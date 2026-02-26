@@ -3,10 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 function Contact() {
     const sectionRef = useRef(null);
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
+        name: '', email: '', phone: '', message: ''
     });
     const [submitted, setSubmitted] = useState(false);
 
@@ -22,12 +19,10 @@ function Contact() {
             },
             { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
         );
-
         if (sectionRef.current) {
-            const animatedElements = sectionRef.current.querySelectorAll('.animate-on-scroll');
-            animatedElements.forEach((el) => observer.observe(el));
+            sectionRef.current.querySelectorAll('.animate-on-scroll')
+                .forEach((el) => observer.observe(el));
         }
-
         return () => observer.disconnect();
     }, []);
 
@@ -42,131 +37,109 @@ function Contact() {
         setFormData({ name: '', email: '', phone: '', message: '' });
     };
 
+    const contactInfo = [
+        { icon: '📍', label: 'Visit', value: 'Main Road, Maharashtra' },
+        { icon: '📞', label: 'Call', value: '+91 XXXXX XXXXX' },
+        { icon: '✉️', label: 'Email', value: 'info@shuddham.com' },
+        { icon: '⏰', label: 'Hours', value: '10 AM – 10 PM' },
+    ];
+
     return (
-        <section id="contact" className="contact-section section-padding" ref={sectionRef}>
+        <section id="contact" className="contact-section-v2 section-padding" ref={sectionRef}>
+            {/* Decorative wave background */}
+            <div className="contact-v2-wave-bg">
+                <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
+                    <path
+                        d="M0,0 C360,120 720,20 1080,80 C1200,100 1360,50 1440,70 L1440,150 L0,150 Z"
+                        fill="rgba(255,92,141,0.04)"
+                    />
+                </svg>
+            </div>
+
             <div className="container">
                 <div className="text-center animate-on-scroll fade-in-up">
-                    <h2 className="section-title">
-                        Get in <span>Touch</span>
+                    <div className="section-tag-v2">
+                        <span className="tag-dot"></span>
+                        Say Hello
+                    </div>
+                    <h2 className="section-title-v2">
+                        Get in <em>Touch</em>
                     </h2>
-                    <div className="section-divider"></div>
-                    <p className="section-subtitle">
-                        Have a question or want to place an order? We'd love to hear from you!
+                    <p className="section-subtitle-v2">
+                        Questions, orders, or just want to say hi? We'd love to hear from you!
                     </p>
                 </div>
 
-                <div className="row g-4 justify-content-center">
-                    {/* Contact Info */}
-                    <div className="col-lg-4">
-                        <div className="contact-info-card animate-on-scroll fade-in-left" style={{ transitionDelay: '0.2s' }}>
-                            <p>
-                                Whether you want to bulk order for an event, become a distributor,
-                                or just want to say hi — reach out to us!
-                            </p>
-
-                            <div className="contact-info-item">
-                                <div className="icon">📍</div>
-                                <div className="text">Main Road, Maharashtra, India</div>
-                            </div>
-
-                            <div className="contact-info-item">
-                                <div className="icon">📞</div>
-                                <div className="text">+91 XXXXX XXXXX</div>
-                            </div>
-
-                            <div className="contact-info-item">
-                                <div className="icon">✉️</div>
-                                <div className="text">info@shuddham.com</div>
-                            </div>
-
-                            <div className="contact-info-item">
-                                <div className="icon">⏰</div>
-                                <div className="text">Mon – Sun: 10 AM – 10 PM</div>
-                            </div>
+                {/* Info cards row */}
+                <div className="contact-v2-info-row animate-on-scroll fade-in-up" style={{ transitionDelay: '0.15s' }}>
+                    {contactInfo.map((item, i) => (
+                        <div className="contact-v2-info-card" key={i}>
+                            <div className="contact-v2-info-icon">{item.icon}</div>
+                            <strong>{item.label}</strong>
+                            <span>{item.value}</span>
                         </div>
-                    </div>
+                    ))}
+                </div>
 
-                    {/* Contact Form */}
-                    <div className="col-lg-6">
-                        <div className="contact-form-wrapper animate-on-scroll fade-in-right" style={{ transitionDelay: '0.3s' }}>
+                {/* Form card */}
+                <div className="row justify-content-center">
+                    <div className="col-lg-8">
+                        <div className="contact-v2-form-card animate-on-scroll fade-in-up" style={{ transitionDelay: '0.3s' }}>
                             {submitted && (
-                                <div
-                                    className="alert alert-success d-flex align-items-center mb-4"
-                                    role="alert"
-                                    style={{ borderRadius: 'var(--radius-sm)' }}
-                                >
-                                    <span style={{ marginRight: '8px' }}>✅</span>
+                                <div className="contact-v2-success">
+                                    <span>✅</span>
                                     Thank you! We'll get back to you soon.
                                 </div>
                             )}
-
                             <form onSubmit={handleSubmit}>
-                                <div className="row g-3">
-                                    <div className="col-md-6">
-                                        <div className="form-floating">
-                                            <input
-                                                type="text"
-                                                className="form-control"
-                                                id="contactName"
-                                                name="name"
-                                                placeholder="Your Name"
-                                                value={formData.name}
-                                                onChange={handleChange}
-                                                required
-                                            />
-                                            <label htmlFor="contactName">Your Name</label>
-                                        </div>
+                                <div className="contact-v2-form-grid">
+                                    <div className="contact-v2-field">
+                                        <input
+                                            type="text"
+                                            name="name"
+                                            placeholder="Your Name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            required
+                                        />
                                     </div>
-                                    <div className="col-md-6">
-                                        <div className="form-floating">
-                                            <input
-                                                type="email"
-                                                className="form-control"
-                                                id="contactEmail"
-                                                name="email"
-                                                placeholder="Your Email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                required
-                                            />
-                                            <label htmlFor="contactEmail">Your Email</label>
-                                        </div>
+                                    <div className="contact-v2-field">
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            placeholder="Your Email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            required
+                                        />
                                     </div>
-                                    <div className="col-12">
-                                        <div className="form-floating">
-                                            <input
-                                                type="tel"
-                                                className="form-control"
-                                                id="contactPhone"
-                                                name="phone"
-                                                placeholder="Your Phone"
-                                                value={formData.phone}
-                                                onChange={handleChange}
-                                            />
-                                            <label htmlFor="contactPhone">Your Phone (Optional)</label>
-                                        </div>
+                                    <div className="contact-v2-field contact-v2-field-full">
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            placeholder="Phone (Optional)"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                        />
                                     </div>
-                                    <div className="col-12">
-                                        <div className="form-floating">
-                                            <textarea
-                                                className="form-control"
-                                                id="contactMessage"
-                                                name="message"
-                                                placeholder="Your Message"
-                                                style={{ height: '140px' }}
-                                                value={formData.message}
-                                                onChange={handleChange}
-                                                required
-                                            ></textarea>
-                                            <label htmlFor="contactMessage">Your Message</label>
-                                        </div>
-                                    </div>
-                                    <div className="col-12">
-                                        <button type="submit" className="btn btn-gradient w-100" style={{ padding: '16px' }}>
-                                            Send Message ✨
-                                        </button>
+                                    <div className="contact-v2-field contact-v2-field-full">
+                                        <textarea
+                                            name="message"
+                                            placeholder="Your Message"
+                                            rows="4"
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            required
+                                        ></textarea>
                                     </div>
                                 </div>
+                                <button type="submit" className="contact-v2-submit">
+                                    <span>Send Message</span>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </button>
                             </form>
                         </div>
                     </div>

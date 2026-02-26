@@ -29,7 +29,7 @@ function Navbar() {
         { id: 'home', label: 'Home' },
         { id: 'about', label: 'About' },
         { id: 'menu', label: 'Menu' },
-        { id: 'specials', label: 'Signature Flavors' },
+        { id: 'specials', label: 'Specials' },
         { id: 'gallery', label: 'Gallery' },
         { id: 'contact', label: 'Contact' },
     ];

@@ -21,7 +21,7 @@ function Hero() {
             <div className="hero-overlay"></div>
 
             <div className="hero-content">
-                <div className="hero-badge">Since 2015</div>
+                <div className="hero-badge">🍨 Since 2015</div>
                 <h1 className="hero-title">
                     Fresh. Natural.<br />Heavenly.
                 </h1>
@@ -35,11 +35,10 @@ function Hero() {
                 </div>
             </div>
 
-            {/* Wavy SVG divider */}
             <div className="hero-wave">
-                <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+                <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
                     <path
-                        d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"
+                        d="M0,60 C320,100 640,20 960,60 C1120,80 1320,40 1440,60 L1440,100 L0,100 Z"
                         fill="#ffffff"
                     />
                 </svg>
