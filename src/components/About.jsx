@@ -110,12 +110,8 @@ function About() {
 
                     {/* Content side */}
                     <div className="about-v2-content animate-on-scroll fade-in-right" style={{ transitionDelay: '0.2s' }}>
-                        <div className="section-tag-v2">
-                            <span className="tag-dot"></span>
-                            Our Story
-                        </div>
                         <h2 className="about-v2-title">
-                            Where Purity Meets <em>Passion</em>
+                            Our <em>Story</em>
                         </h2>
                         <p className="about-v2-lead">
                             Since 2015, Shuddham has been more than just a dessert destination —

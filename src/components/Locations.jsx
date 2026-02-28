@@ -32,7 +32,7 @@ function Locations() {
     ];
 
     return (
-        <section id="locations" className="locations-section-v2 section-padding" ref={sectionRef}>
+        <section id="locations" className="locations-section-v2 bg-white section-padding" ref={sectionRef}>
             <div className="container">
                 <div className="text-center animate-on-scroll fade-in-up">
                     <div className="section-tag-v2">

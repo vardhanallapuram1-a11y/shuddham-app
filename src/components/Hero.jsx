@@ -23,10 +23,10 @@ function Hero() {
             <div className="hero-content">
                 <div className="hero-badge">🍨 Since 2015</div>
                 <h1 className="hero-title">
-                    Fresh. Natural.<br />Heavenly.
+                    Pure Nature,<br />Hand-Scooped.
                 </h1>
                 <p className="hero-tagline">
-                    That's Our Promise — Bond of Purity
+                    Experience the true essence of real flavors since 2015.
                 </p>
                 <div className="hero-cta">
                     <a href="#menu" className="btn btn-gradient" onClick={scrollToMenu}>
@@ -39,7 +39,7 @@ function Hero() {
                 <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
                     <path
                         d="M0,60 C320,100 640,20 960,60 C1120,80 1320,40 1440,60 L1440,100 L0,100 Z"
-                        fill="#ffffff"
+                        fill="#FDF2E9"
                     />
                 </svg>
             </div>

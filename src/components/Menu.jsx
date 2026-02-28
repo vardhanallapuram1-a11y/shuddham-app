@@ -32,22 +32,14 @@ function Menu() {
     const [titleRef, titleVisible] = useScrollAnimation(0.1);
 
     return (
-        <section id="menu" className="menu-section-v2 section-padding">
-            {/* Decorative background elements */}
-            <div className="menu-v2-deco menu-v2-deco-1"></div>
-            <div className="menu-v2-deco menu-v2-deco-2"></div>
-
+        <section id="menu" className="menu-section-v2 section-padding-compact">
             <div className="container">
                 <div
                     ref={titleRef}
                     className={`text-center fade-in-up ${titleVisible ? 'visible' : ''}`}
                 >
-                    <div className="section-tag-v2">
-                        <span className="tag-dot"></span>
-                        Our Flavors
-                    </div>
                     <h2 className="section-title-v2">
-                        Handcrafted <em>Menu</em>
+                        Our <em>Menu</em>
                     </h2>
                     <p className="section-subtitle-v2">
                         Each flavor is a celebration of taste and purity, crafted with the finest natural ingredients.
@@ -57,7 +49,7 @@ function Menu() {
                 <div className={`slider-wrapper-v2 animate-on-scroll fade-in-up ${titleVisible ? 'visible' : ''}`} style={{ transitionDelay: '0.3s' }}>
                     <Swiper
                         modules={[Navigation, Pagination, Autoplay]}
-                        spaceBetween={28}
+                        spaceBetween={20}
                         slidesPerView={1}
                         navigation
                         pagination={{ clickable: true }}
@@ -71,7 +63,7 @@ function Menu() {
                     >
                         {products.map((product, index) => (
                             <SwiperSlide key={index} className="h-auto">
-                                <div className="h-100 pb-5">
+                                <div className="h-100">
                                     <ProductCard
                                         image={product.image}
                                         name={product.name}

@@ -19,7 +19,7 @@ function Footer() {
                 <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
                     <path
                         d="M0,80 C240,120 480,40 720,80 C960,120 1200,40 1440,80 L1440,120 L0,120 Z"
-                        fill="var(--gray-900)"
+                        fill="#D42A62"
                     />
                 </svg>
             </div>

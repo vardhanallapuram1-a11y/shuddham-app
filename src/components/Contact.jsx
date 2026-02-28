@@ -37,15 +37,8 @@ function Contact() {
         setFormData({ name: '', email: '', phone: '', message: '' });
     };
 
-    const contactInfo = [
-        { icon: '📍', label: 'Visit', value: 'Main Road, Maharashtra' },
-        { icon: '📞', label: 'Call', value: '+91 XXXXX XXXXX' },
-        { icon: '✉️', label: 'Email', value: 'info@shuddham.com' },
-        { icon: '⏰', label: 'Hours', value: '10 AM – 10 PM' },
-    ];
-
     return (
-        <section id="contact" className="contact-section-v2 section-padding" ref={sectionRef}>
+        <section id="contact" className="contact-section-v2 bg-cream section-padding" ref={sectionRef}>
             {/* Decorative wave background */}
             <div className="contact-v2-wave-bg">
                 <svg viewBox="0 0 1440 150" preserveAspectRatio="none">
@@ -68,17 +61,6 @@ function Contact() {
                     <p className="section-subtitle-v2">
                         Questions, orders, or just want to say hi? We'd love to hear from you!
                     </p>
-                </div>
-
-                {/* Info cards row */}
-                <div className="contact-v2-info-row animate-on-scroll fade-in-up" style={{ transitionDelay: '0.15s' }}>
-                    {contactInfo.map((item, i) => (
-                        <div className="contact-v2-info-card" key={i}>
-                            <div className="contact-v2-info-icon">{item.icon}</div>
-                            <strong>{item.label}</strong>
-                            <span>{item.value}</span>
-                        </div>
-                    ))}
                 </div>
 
                 {/* Form card */}

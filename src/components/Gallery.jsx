@@ -1,4 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import vanilla from '../assets/images/vanilla.jpeg';
 import butterscotch from '../assets/images/butterscotch.jpeg';
@@ -13,13 +19,13 @@ import storeFridge from '../assets/images/store-fridge.jpeg';
 const galleryImages = [
     { src: mango, alt: 'Mango Ice Cream', category: 'fruity' },
     { src: strawberry, alt: 'Strawberry Ice Cream', category: 'fruity' },
-    { src: chocolate, alt: 'Chocolate Ice Cream', category: 'classic' },
-    { src: coconut, alt: 'Coconut Ice Cream', category: 'fruity' },
-    { src: blackberry, alt: 'Blackberry Ice Cream', category: 'fruity' },
-    { src: storeFridge, alt: 'Shuddham Store', category: 'store' },
-    { src: vanilla, alt: 'Vanilla Ice Cream', category: 'classic' },
-    { src: naturalJamun, alt: 'Natural Jamun Ice Cream', category: 'fruity' },
-    { src: butterscotch, alt: 'Butterscotch Ice Cream', category: 'classic' },
+    { src: chocolate, alt: 'Classic Chocolate', category: 'classic' },
+    { src: coconut, alt: 'Creamy Coconut', category: 'fruity' },
+    { src: blackberry, alt: 'Wild Blackberry', category: 'fruity' },
+    { src: storeFridge, alt: 'Our Premium Store', category: 'store' },
+    { src: vanilla, alt: 'Pure Vanilla', category: 'classic' },
+    { src: naturalJamun, alt: 'Natural Jamun', category: 'fruity' },
+    { src: butterscotch, alt: 'Royal Butterscotch', category: 'classic' },
 ];
 
 const filters = ['All', 'Fruity', 'Classic', 'Store'];
@@ -58,23 +64,19 @@ function Gallery() {
     const closeModal = () => setModalImage(null);
 
     return (
-        <section id="gallery" className="gallery-section-v2 section-padding" ref={sectionRef}>
+        <section id="gallery" className="gallery-section-v2 section-padding-compact" ref={sectionRef}>
             <div className="container">
                 <div className="text-center animate-on-scroll fade-in-up">
-                    <div className="section-tag-v2">
-                        <span className="tag-dot"></span>
-                        Gallery
-                    </div>
                     <h2 className="section-title-v2">
                         Sweet <em>Moments</em>
                     </h2>
                     <p className="section-subtitle-v2">
-                        A visual feast of our handcrafted creations — every scoop is a masterpiece.
+                        A visual journey through our handcrafted creations — shared with love.
                     </p>
                 </div>
 
                 {/* Filter tabs */}
-                <div className="gallery-v2-filters animate-on-scroll fade-in-up" style={{ transitionDelay: '0.15s' }}>
+                <div className="gallery-v2-filters animate-on-scroll fade-in-up" style={{ transitionDelay: '0.1s' }}>
                     {filters.map((f) => (
                         <button
                             key={f}
@@ -86,31 +88,41 @@ function Gallery() {
                     ))}
                 </div>
 
-                <div
-                    className="gallery-v2-grid animate-on-scroll scale-in"
-                    style={{ transitionDelay: '0.3s' }}
-                >
-                    {filtered.map((img, index) => (
-                        <div
-                            key={index}
-                            className="gallery-v2-item"
-                            onClick={() => openModal(img)}
-                        >
-                            <img src={img.src} alt={img.alt} loading="lazy" />
-                            <div className="gallery-v2-item-overlay">
-                                <span className="gallery-v2-item-name">{img.alt}</span>
-                                <span className="gallery-v2-zoom">⊕</span>
-                            </div>
-                        </div>
-                    ))}
+                <div className="gallery-v2-slider animate-on-scroll fade-in-up" style={{ transitionDelay: '0.2s' }}>
+                    <Swiper
+                        modules={[Navigation, Pagination, Autoplay]}
+                        spaceBetween={24}
+                        slidesPerView={1}
+                        navigation
+                        pagination={{ clickable: true }}
+                        autoplay={{ delay: 4000, disableOnInteraction: false }}
+                        breakpoints={{
+                            640: { slidesPerView: 1.5 },
+                            768: { slidesPerView: 2 },
+                            1024: { slidesPerView: 3 },
+                        }}
+                        className="gallery-swiper"
+                    >
+                        {filtered.map((img, index) => (
+                            <SwiperSlide key={`${activeFilter}-${index}`}>
+                                <div
+                                    className="gallery-v2-item"
+                                    onClick={() => openModal(img)}
+                                >
+                                    <img src={img.src} alt={img.alt} loading="lazy" />
+                                    <div className="gallery-v2-item-overlay">
+                                        <span className="gallery-v2-item-name">{img.alt}</span>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
             </div>
 
             {modalImage && (
                 <div className="gallery-modal-v2" onClick={closeModal}>
-                    <button className="gallery-modal-v2-close" onClick={closeModal}>
-                        ✕
-                    </button>
+                    <button className="gallery-modal-v2-close" onClick={closeModal}>✕</button>
                     <img
                         src={modalImage.src}
                         alt={modalImage.alt}

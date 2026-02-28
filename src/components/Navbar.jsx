@@ -36,7 +36,8 @@ function Navbar() {
 
     return (
         <nav className={`navbar navbar-expand-lg navbar-shuddham ${scrolled ? 'scrolled' : ''}`}>
-            <div className="container">
+            <div className="container d-flex align-items-center justify-content-between">
+                {/* Mobile Toggler - Now on the left */}
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -46,10 +47,12 @@ function Navbar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
+                {/* Logo - Stays visible or centers on mobile depending on CSS */}
                 <a className="navbar-brand" href="#home" onClick={(e) => handleNavClick(e, 'home')}>
                     <img src={logo} alt="Shuddham - Bond of Purity" />
                 </a>
 
+                {/* Centralized Links */}
                 <div className={`collapse navbar-collapse ${collapsed ? '' : 'show'}`}>
                     <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                         {navLinks.map((link) => (
@@ -64,9 +67,13 @@ function Navbar() {
                             </li>
                         ))}
                     </ul>
+                </div>
+
+                {/* CTA - Hidden on mobile, visible on LG */}
+                <div className="nav-cta-wrapper d-none d-lg-block">
                     <a
                         href="#contact"
-                        className="btn btn-gradient d-none d-lg-inline-block"
+                        className="btn btn-gradient"
                         onClick={(e) => handleNavClick(e, 'contact')}
                     >
                         Order Now
