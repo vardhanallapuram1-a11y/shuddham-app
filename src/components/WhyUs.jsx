@@ -7,11 +7,11 @@ export default function WhyUs() {
   return (
     <section id="why" style={{
       padding: "clamp(60px, 10vw, 120px) 24px",
-      background: "var(--warm-dark)",
+      background: "var(--ice-brown)",
       position: "relative",
       overflow: "hidden"
     }}>
-      <div style={{ position: "absolute", top: "10%", right: "-10%", width: "50vmax", height: "50vmax", borderRadius: "50%", background: "radial-gradient(circle, rgba(166,124,82,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: "10%", right: "-10%", width: "50vmax", height: "50vmax", borderRadius: "50%", background: "radial-gradient(circle, rgba(255,133,162,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />
       <div ref={ref} style={{ maxWidth: 1400, margin: "0 auto", position: "relative" }}>
         <div style={{ marginBottom: 64 }} className={`reveal ${vis ? 'reveal-active' : ''}`}>
           <span style={{
@@ -20,7 +20,7 @@ export default function WhyUs() {
             fontWeight: 700,
             letterSpacing: "0.15em",
             textTransform: "uppercase",
-            color: "var(--warm-accent)",
+            color: "var(--ice-peach)",
             display: "block",
             marginBottom: 16
           }}>Why Choose Shuddham</span>
@@ -32,7 +32,7 @@ export default function WhyUs() {
             color: "var(--white)",
             lineHeight: 1.1
           }}>
-            Purity in<br /><span style={{ fontStyle: "italic", fontWeight: 400, color: "var(--warm-accent)" }}>Every Promise</span>
+            Purity in<br /><span style={{ fontStyle: "italic", fontWeight: 400, color: "var(--ice-peach)" }}>Every Promise</span>
           </h2>
         </div>
 
@@ -41,9 +41,13 @@ export default function WhyUs() {
             const Icon = p.icon;
             return (
               <div key={p.t} className={`wc reveal reveal-delay-${(i % 3) + 1} ${vis ? "reveal-active" : ""}`} style={{
-                textAlign: "left"
+                textAlign: "left",
+                background: "rgba(255,255,255,0.03)",
+                borderRadius: "24px",
+                padding: "32px",
+                border: "1px solid rgba(255,255,255,0.05)"
               }}>
-                <div style={{ display: "block", marginBottom: 20, color: "var(--warm-accent)" }}>
+                <div style={{ display: "block", marginBottom: 20, color: "var(--ice-pink)" }}>
                   <Icon size={36} strokeWidth={1.5} />
                 </div>
                 <h3 style={{ fontFamily: "var(--serif)", fontWeight: 700, fontSize: "1.25rem", color: "var(--white)", marginBottom: 12 }}>{p.t}</h3>

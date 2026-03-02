@@ -1,25 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,700&family=Outfit:wght@300;400;500;600;700&family=Dancing+Script:wght@400..700&display=swap");
 
 :root {
-  /* Warm Elegance Palette */
-  --warm-bg: #fdf6e9;
-  --warm-card: #ffffff;
-  --warm-dark: #3c2f2f;
-  --warm-accent: #a67c52;
-  --warm-cream: #fdf6f0;
+  /* Artisanal Ice Cream Palette */
+  --ice-peach: #FFB7B2;
+  --ice-peach-light: #FFF0EF;
+  --ice-mint: #B2E2F2;
+  --ice-mint-light: #F0F9FF;
+  --ice-lavender: #D1B2FF;
+  --ice-lavender-light: #F6F0FF;
+  --ice-honey: #FFE9AA;
+  --ice-honey-light: #FFFBE6;
+  --ice-white: #FFFFFF;
+  --ice-brown: #3c2f2f;
+
+  --warm-bg: var(--ice-peach-light);
+  --warm-card: var(--ice-white);
+  --warm-dark: var(--ice-brown);
+  --warm-accent: var(--ice-peach);
+  --warm-cream: var(--ice-white);
   --fast: 0.2s;
 
-  --ocean: #4facfe;
-  --tiger: #3c2f2f;
+  --ocean: var(--ice-mint);
+  --tiger: var(--ice-brown);
   /* Dark brown as primary action color */
   --tiger-dk: #2a1f1f;
-  --tiger-lt: #fdf6f0;
+  --tiger-lt: var(--ice-mint-light);
 
-  --ink: #3c2f2f;
+  --ink: var(--ice-brown);
   --white: #ffffff;
-  --linen: #fdf6e9;
+  --linen: var(--ice-peach-light);
   /* Warm cream background */
-  --border: #f0e6d6;
+  --border: rgba(0, 0, 0, 0.05);
   --muted: #8c7e7e;
 
   /* Typography */

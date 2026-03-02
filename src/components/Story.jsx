@@ -19,18 +19,19 @@ export default function Story() {
       }}>
         {cards.map((c, i) => (
           <div key={i} className={`reveal reveal-delay-${i + 1} ${vis ? 'reveal-active' : ''}`} style={{
-            background: "rgba(166, 124, 82, 0.1)", // Subtle warm accent tint
+            background: "var(--ice-white)",
             padding: "40px",
             borderRadius: "var(--r-lg)",
             textAlign: "left",
-            border: "1px solid rgba(60, 47, 47, 0.05)"
+            border: "1px solid rgba(0, 0, 0, 0.05)",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.02)"
           }}>
             <div style={{ fontSize: "2rem", marginBottom: 20 }}>{c.icon}</div>
             <h4 style={{
               fontFamily: "var(--serif)",
               fontSize: "1.4rem",
               fontWeight: 700,
-              color: "var(--warm-dark)",
+              color: "var(--ice-peach)",
               marginBottom: 12
             }}>
               {c.title}
@@ -39,7 +40,7 @@ export default function Story() {
               fontFamily: "var(--sans)",
               fontSize: "0.95rem",
               lineHeight: 1.6,
-              color: "var(--muted)"
+              color: "rgba(60,47,47,0.6)"
             }}>
               {c.desc}
             </p>
